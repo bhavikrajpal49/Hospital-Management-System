@@ -1,0 +1,156 @@
+--Create database hospoitalsystem;
+
+use hospitalsystem;
+
+create table admin
+(
+adminname varchar(40) primary key,
+password varchar(10)
+);
+
+
+
+insert into admin values('admin','admin');
+
+
+create table adminname
+(
+username varchar(50) primary key,
+password varchar(50)
+);
+
+create table doctor
+(
+doc_id varchar(10) primary key,
+doc_fname varchar(20),
+doc_lname varchar(20),
+doc_age int(3),
+doc_bloodgrp varchar(10),
+doc_gender varchar(10),
+doc_dept varchar(30),
+doc_addr varchar(50),
+doc_marital varchar(10),
+doc_ph int(10),
+doc_city varchar(10),
+doc_joindate varchar(10),
+doc_leavedate varchar(10),
+doc_visittime varchar(10),
+doc_days varchar(20),
+doc_username varchar(20),
+doc_password varchar(8)
+);
+
+create table patient
+(
+pat_id varchar(20) primary key,
+pat_fname varchar(20),
+pat_lname varchar(20),
+pat_age int(3),
+pat_bloodgrp varchar(10),
+pat_gender varchar(10),
+pat_ph int(10),
+pat_addr varchar(50),
+pat_marital varchar(10),
+pat_patype varchar(20),
+pat_visitdate varchar(20),
+pat_bedno varchar(20),
+pat_visittime varchar(20),
+pat_disease varchar(20),
+pat_username varchar(20),
+pat_password varchar(16);
+);
+
+create table staff
+(
+staff_id varchar(20) primary key,
+staff_fname varchar(20),
+staff_lname varchar(20),
+staff_age int(3),
+staff_bloodgrp varchar(10),
+staff_gender varchar(10),
+staff_dept varchar(20),
+staff_addr varchar(50),
+staff_marital varchar(10),
+staff_ph int (10),
+staff_city varchar(10),
+staff_joindate varchar(10),
+staff_leavedate varchar(10),
+staff_days varchar(20)
+);
+
+
+create table bed
+(
+bed_no varchar(10) primary key,
+bed_roomno varchar(10),
+bed_patid varchar(10) foreign key references patient(pat_id),
+bed_category varchar(10),
+bed_availablity varachar(10),
+);
+
+create table patient1
+(
+pat_id varchar(20) primary key,
+pat_fname varchar(20),
+pat_lname varchar(20),
+pat_age int(3),
+pat_bloodgrp varchar(10),
+pat_gender varchar(10),
+pat_ph int(10),
+pat_addr varchar(50),
+pat_marital varchar(10),
+pat_patype varchar(20),
+pat_visitdate varchar(20),
+pat_bedno varchar(20),
+pat_visittime varchar(20),
+pat_disease varchar(20),
+pat_username varchar(20),
+pat_password varchar(16)
+);
+
+create table bed1
+(
+bed_no varchar(50) primary key,
+bed_roomno varchar(50),
+bed_patientid varchar(50),
+bed_category varchar(50),
+bed_availablity varchar(50)
+);
+
+
+create table appointment
+(
+appt_id varchar(30) primary key,
+appt_docid varchar(30),
+appt_patid varchar(30),
+appt_date varchar(30),
+appt_time varchar(30),
+appt_desc varchar(500)
+);
+
+create table department
+(
+dept_id varchar(30) primary key,
+dept_name varchar(30),
+dept_desc varchar(500)
+);
+
+create table prescription 
+(
+prs_id varchar(50) primary key,
+prs_disease varchar(50),
+prs_tab1 varchar(50),
+prs_dose1 varchar(50),
+prs_tab2 varchar(50),
+prs_dose2 varchar(50),
+prs_tab3 varchar(50),
+prs_dose3 varchar(50),
+prs_tab4 varchar(50),
+prs_dose4 varchar(50),
+prs_sideeffect varchar(50),
+prs_days varchar(50),
+prs_patid varchar(50)
+);
+
+
+
